@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Base64 Encode and Decode</title>
+		<script>
+			function encode() {
+				var edin = document.getElementById("edin").value;
+				var enc = btoa(edin);
+				var nb = document.getElementById("nb")
+				nb.style.opacity = 100;
+				nb.style.pointerEvents = "auto";
+				nb.value = enc;
+			};
+			function decode() {
+				var edin = document.getElementById("edin").value;
+				var dec = atob(edin);
+				var nb = document.getElementById("nb")
+				nb.style.opacity = 100;
+				nb.style.pointerEvents = "auto";
+				nb.value = dec;
+			};
+		</script>
+		<style>
+			tab {
+				margin-left: 40px;
+			}
+			body {
+				background-color: #d5cd8a;
+			}
+			#title {
+				text-align: center;
+			}
+			#bc {
+				text-align: center;
+			}
+			#encode {
+				display: inline-block;
+				margin: 0 auto;
+				background-color: black;
+				color: white;
+				height: 40px;
+				line-height: 40px;
+				text-decoration: none;
+				width: 100px;
+			}
+			#decode {
+				display: inline-block;
+				margin: 0 auto;
+				background-color: white;
+				color: black;
+				height: 40px;
+				line-height: 40px;
+				text-decoration: none;
+				width: 100px;
+			}
+			#edin {
+				resize: none;
+			}
+			#nb {
+				resize: none;
+				opacity: 0;
+				pointer-events: none;
+				
+		</style>
+	</head>
+	<body>
+		<h1 id="title">Base64 Encode and Decode</h1>
+		<div id="bc">
+			<textarea id="edin" rows="13" cols="150"></textarea>
+			<br />
+			<br />
+			<div>
+				<a id="encode" href="javascript:encode()">
+					Encode
+				</a>	
+				<tab></tab>
+				<a id="decode" href="javascript:decode()">
+					Decode
+				</a>
+			</div>
+			<br /><br />
+			<textarea id="nb" rows="13" cols="150"></textarea>
+		</div>
+	</body>
+</html>
