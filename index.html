@@ -55,7 +55,47 @@
 			border: black 5px solid;
 			border-radius: 15px;
 			color: white;
+		}
+		#abovemiddlecontent {
+			text-align: center;
+			color: black;
+			margin: none;
+			border: none;
+			border-radius: 10px;
+			background-color: black;
+		}
+		#hnctitle {
+			color: white;
+			border-radius: 10px;
+			background-color: grey;
+			border: 2px solid white;
+			margin: 5px 0px 10px 0px;
+			text-align: center;
+			width: 50%;
+			font-size: 20px;
 			padding: 5px;
+		}
+		#hnc {
+			cursor: pointer;
+			font-weight: bold;
+			font-family: courier;
+			font-size: 2em;
+			color: blue;
+			background-color: lightgreen;
+			-webkit-text-stroke-width: 1px;
+			-webkit-text-stroke-color: yellow;
+			border: 10px outset yellow;
+			outline: 5px solid lightblue;
+		}
+		#hnc:hover {
+			outline: 5px solid lightgreen;
+			background-color: lightblue;
+			text-decoration: underline;
+		}
+		#tiktoklogo {
+			height: 30px;
+			width: 40px;
+			vertical-align: text-top;
 		}
 	</style>
 	<script>
@@ -68,19 +108,34 @@
 			<hr id="titlehr" />
 			<a class="pagetitle" id="subpagetitle" href="https://myjobistobehappy.github.io">myjobistobehappy.github.com</a>
 		</div>
-		<br />
+		<br>
+		<fieldset id="abovemiddlecontent">
+			<legend id="hnctitle">SCRIPTS 4 YOU!<hr style="margin:0;"><small>Tiktok: <a target="_blank"href="https://www.tiktok.com/@hacksnotcracks">@hacksnotcracks</a></small></legend>
+			<div id="hnc" onclick="window.open('hacksnotcracks/index.html')"><img src="images/tiktoklogo.png" id="tiktoklogo">Hacks Not Cracks Scripts</div>
+			<br>
+		</fieldset>
+		<br>
 		<div id="middlecontent">
-			<h2 style="margin: 0;"><u><i><center>Projects: </center></i></u></h2>
-			<p><a href="base64.html" style="color: red;">Base64 Encoder/Decoder</a></p>
+			<h2 style="margin: 10px;"><u><i><center>Projects: </center></i></u></h2>
+			<ul>
+				<li><a target="_blank" href="base64.html" style="color: red;">Base64 Encoder/Decoder</a></li>
+				<li><a target="_blank" href="binaryobjects.html" style="color: red;">Binary Objects (<span style="color: lightgreen";>Enhanced</span>)</a></li>
+				<ul>
+				<li><a target="_blank" href="blobcreator.html" style="color: orange;">Blob Creator (<span style="color: grey";>NOT Enhanced</span>)</a></li>
+				</ul>
+			</ul>
 		</div>
 		<br />
 		<fieldset id="contactarea">
 			<legend id="contactheader">Contact Me:</legend>
-			<span>Email: <a href="mailto:myjobistobehappy@gmail.com">myjobistobehappy@gmail.com</a></span>
-			<!--<br />
-			<span>Instagram: <a href="https://instagram.com/backdoortolife" target="_blank">Back Door To Life</a></span>
-			<br />
-			<span>TikTok: <a href="https://www.tiktok.com/@backdoortolife" target="_blank">@backdoortolife</a></span>-->
+			<span>Email: <a target="_blank" href="mailto:myjobistobehappy@gmail.com">myjobistobehappy@gmail.com</a></span>
+			<br>
+			<span>Tikok: <a target="_blank" href="https://tiktok.com/@myjobistobehappy" target="_blank">@myjobistobehappy</a></span>
+			<br>
+			<span>Tikok: <a target="_blank" href="https://tiktok.com/@hacksnotcracks" target="_blank">@hacksnotcracks</a></span>
+			<br>
+			<span>Instagram: <a target="_blank" href="https://instagram.com/myjobistohappy">myjobistohappy</a></span>
 		</fieldset>
 	</body>
+	<!-- MADE BY BEN -->
 </html>
