@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>Blob URL Creator</title>
+		<script>
+			function makeBlob() {
+				var blobData = document.getElementById("blobDataInput").value;
+				var blob = new Blob([blobData], {type: "text/html"}),
+    			url = URL.createObjectURL(blob);
+				HTMLBodyElement.onload = function() {
+    			URL.revokeObjectURL(this.src);     // clean-up memory
+    			document.body.appendChild(this);   // add image to DOM
+			}
+
+				HTMLBodyElement.src = url;
+				//let link = document.createElement("a");
+				//link.href = url;
+				//link.innerText = "Open the array URL";
+				//var q = link.href;
+				document.getElementById("blobPlace").innerHTML = url;
+				document.getElementById("blobPlace").href = url;
+				document.getElementById("boom").style.opacity = 100;
+				document.getElementById("doom").style.opacity = 100;
+		                         // can now "stream" the bytes
+			}
+		</script>
+	</head>
+	<body> 
+		<h1>Blob Creator</h1>
+		<p>Input HTML code to be converted to a local blob url. If you are putting in video or audio, be sure to use &lt;video&gt; or &lt;audio&gt;. They don't run by themselves encoded.</p>
+		<small><i>*Note that when you close this page and reload the blob url, it will disappear.</i></small>
+		<textarea id="blobDataInput" rows="10" cols="150" wrap="hard"></textarea><br /><button onclick="javascript:makeBlob()">Make a BLOB URL.</button>
+		<p><b>The URL will open in a new tab, so don't be afraid that you will close this tab.</b></p>
+		<p>Blob URL Will Appear Below:</p>
+		<hr style="opacity:0;" id="boom" />
+		<a id="blobPlace" href="javascript:alert('You have put in any HTML yet.')" target="_blank" style="color:red;"></a>
+		<hr style="opacity:0;" id="doom"/>
+	</body>
+</html>
