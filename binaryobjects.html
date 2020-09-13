@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Binary Objects</title>
+		<style>
+			body {
+				background-color: #e3fceb;
+				text-align: center;
+			}
+			#title {
+				background-color: #5a6e60;
+				color: black;
+				border: white solid 2px;
+				outline: black solid 2px;
+				font-size: 30px;
+				text-align: center;
+				font-family: courier;
+				font-weight: bold;
+				-webkit-text-stroke-width: 1px;
+				-webkit-text-stroke-color: white;
+			}
+			#blobcontent {
+				margin: auto;
+				display: block;
+				outline: none;
+				border: black solid 2px;
+				border-radius: 5px;
+				background color: black;
+			}
+			#blobcontent:focus {
+				outline: green solid 2px;
+				border: yellow solid 2px;
+			}
+			#filename {
+				font-family: Times;
+				height: 25px;
+				width: 15em;
+				font-size: 20px;
+				outline: none;
+				border: black solid 2px;
+				border-radius: 5px;
+			}
+			#filename:focus {
+				outline: red solid 2px;
+				border: yellow solid 2px;
+			}
+			#doitbutton {
+				display: inline-block;
+				cursor: pointer;
+				transform: scale(1,1);
+				transition-timing-function: ease-out;
+				transition-duration: 300ms;
+				background-color: black;
+				color: white;
+				padding: 8px;
+				text-align: center;
+				border-radius: 10px;
+				user-select: none;
+				border: black solid 2px;
+			}
+
+			#doitbutton:hover {
+				opacity: .7;
+				transform: scale(1.1,1.1);
+				transition-timing-function: ease-out;
+				transition-duration: 300ms;
+				background-color: white;
+				color: black;
+			}
+		</style>
+		<script>
+			function download(name, data) {
+				const dblob = new Blob([data], {type : 'application/octect-stream'});
+				var dbloburl = URL.createObjectURL(dblob);
+				var da = document.createElement('a');
+				da.href = dbloburl;
+				da.download = name;
+				da.click();
+				da.remove();
+				window.URL.revokeObjectURL(dbloburl);
+			};
+			function openblob(data) {
+				const oblob = new Blob([data], {type : 'text/html'});
+				var obloburl = URL.createObjectURL(oblob);
+				window.open(obloburl)
+				window.URL.revokeObjectURL(obloburl);
+			}
+			function muh() {
+				var vale = document.getElementById("selectlist").value;
+				if(vale == "ob") {
+					openblob(document.getElementById("blobcontent").value)
+				}
+				else if(vale == "db") {
+					download(document.getElementById("filename").value, document.getElementById("blobcontent").value)
+				}
+				else {
+					alert("Something went wrong :(")
+				}
+			}
+			function maybehide() {
+				var vale = document.getElementById("selectlist").value;
+				var filnam = document.getElementById("filename");
+				var dib = document.getElementById("doitbutton");
+				if(vale == "ob") {
+					filnam.style.visibility = "hidden";
+					dib.innerText = "OPEN!";
+				}
+				else if(vale == "db") {
+					filnam.style.visibility = "visible";
+					dib.innerText = "Download!";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="title">Binary Objects:<br>What To Do With Them?</div>
+		<small><tt>*QUICK NOTE: The BLOBS are written in format text/html that are opened; otherwise they follow filename. All BLOBs and are revoked after being opened/downloaded.</tt></small>
+		<br><br>
+		<input type="text" id="filename" placeholder="Filename.txt" />
+		<br><br>
+		<textarea id="blobcontent" rows="20" cols="80"placeholder="Enter Code Here..."></textarea>
+		<br><br>
+			<label for="selectlist">Choose an option:</label>
+			<select id="selectlist" oninput="maybehide()">
+				<option value="db">Download BLOB</option>
+				<option value="ob">Open BLOB</option>
+			</select>
+		<br><br>
+		<div id="doitbutton" onclick="muh()">Download!</div>
+	</body>
+</html>
