@@ -3,175 +3,143 @@
 	<head>
 		<meta name="google-site-verification" content="fITH6xSt5tdjhLDbyi6stCogXKWixaf7aKNn3PEhttI" />
 		<title>My Job Is To Be Happy</title>
-	<style>
-		html {
-  			height: 100%;
-  			width: 100%;
-		}
-		body {
-			background-image: linear-gradient(turquoise, blue, #0000A0, #00008B);
-			background-repeat:no-repeat;
-			background-size: cover;
-		}
-		a {
-			color: white;
-		}
-		a:hover {
-			color: red;
-		}
-		.pagetitle {
-			color: white;
-			display: block;
-			padding: 7px;
-			text-align: center;
+		<style>
+			body {
+				background-color: white;
+				background-repeat:no-repeat;
+				background-size: cover;
+				margin:0;
+				font-family: courier;
+			}
 
-		}
-		#subpagetitle {
-			color: red;
-			font-size: 12px;
-			font-style: italic;
-		}
-		#subpagetitle:hover {
-			color:lightblue;
-		}
-		#headertitle {
-			background-color: black;
-			background-image: linear-gradient(black, black, blue);
-			border-color: black;; 
-			border-radius: 10px;
-			border-style: solid;
-			border-width: 2px;
-			box-shadow: 0px 0px 0px 1px white inset;
-			overflow: hidden;
-		}
-		#titlehr {
-			margin: 2px;
-			border-color: black; 
-			border-style: dashed;
-			border-width: 1px;
-			outline: #a9a9a9 1px solid;
-			background-color: grey;
-		}
-		#contactheader {
-			background-image: linear-gradient(blue, lightblue);
-			color: white;
-			border: black 2px solid;
-			border-radius: 5px;
-			box-shadow: 0px 0px 0px 1px white inset;
-			padding: 7px;
-			text-decoration: underline;
-			font-weight: bold;
-		}
-		#contactarea {
-			background-image: linear-gradient(lightblue, blue);
-			color: white;
-			border: black 2px solid;
-			border-radius: 10px;
-			box-shadow: 0px 0px 0px 1px white inset;
-		}
-		#middlecontent {
-			background-image: linear-gradient(yellow, red);
-			border: black 2px solid;
-			border-radius: 10px;
-			color: white;
-			box-shadow: 0px 0px 0px 1px white inset;
-		}
-		#abovemiddlecontent {
-			background-image: linear-gradient(yellow, red);
-			text-align: center;
-			color: black;
-			margin: none;
-			border: black 2px solid;
-			box-shadow: 0px 0px 0px 1px white inset;
-			border-radius: 10px;
-		}
-		#hnctitle {
-			/*turquoise, blue, #0000A0, #00008B8*/
-			background-image: linear-gradient(blue, blue, lightblue, yellow, orange);
-			color: white;
-			border-radius: 10px;
-			border: 2px solid black;
-			box-shadow: 0px 0px 0px 1px white inset;
-			margin: 5px 0px 10px 0px;
-			text-align: center;
-			width: 50%;
-			font-size: 20px;
-			padding: 5px;
-		}
-		#hnc {
-			background-image: radial-gradient(yellow, orange, red);
-			cursor: pointer;
-			font-weight: bold;
-			font-family: courier;
-			font-size: 2em;
-			color: black;
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color: white;
-			border: black 2px solid;
-			box-shadow: 0px 0px 0px 1px white inset;
-			border-radius: 10px;
-			width: 75%;
-			text-align: center;
-			margin: auto;
-		}
-		#hnc:hover {
-			text-decoration: underline;
-		}
-		#tiktoklogo {
-			margin: 2px;
-			height: 30px;
-			width: 40px;
-			padding: 1px;
-			vertical-align: text-top;
-			border-radius: 10px;
-		}
-		#hnchr {
-			margin: 0;
-			border-width: 0.5px;
-			border-style: solid;
-			border-color: white;
-			outline: 1px black solid;
+			#header {
+				width: 100%;
+				position: sticky;
+				top: 0;
+				color: white;
+				background-color: lightgrey;
+				overflow: auto;
+				opacity: 0.95;
+				border-bottom: 5px solid black;
+				z-index: 999999;
+			}
+			#homelink {
+				float: left;
+				padding: 10px;
+				color: black;
+				margin: 4px;
+				font-family: Courier;
+				text-decoration: none;
+				margin: auto;
+				font-weight: bold;
+				font-size: 1.25em;
+				word-spacing: -5px;
+			}
+			.svgformat {
+				float: right;
+				text-decoration: none;
+				/*font-size: 3em;*/
+				margin: 0px;
+				margin-left: 10px;
+				padding: 10px;
+			}
+			#tiktokicon {
+				width: 1.9em;
+			}
+			#instagramicon {
+				width: 2em;
+			}
+			#mailicon {
+				width: 2.3em;
+			}
+			
+			#middle {
+				margin: 1em;
+			}
+			#welcomewords {
+				text-align: center;
+				color: lightgrey;
+				font-size: 2em;
+				text-align: center;
+				font-family: courier;
+				-webkit-text-stroke-width: 1px;
+				-webkit-text-stroke-color: black;
+				text-decoration: underline;
+			}
+			#bottomcredit {
+				padding: 5px;
+			}
+			#bottomcredit a {
+				color: red;
+			}
 
-		}
-	</style>
-	<script>
-
-	</script>
+			.projectbutton {
+				display: inline-block;
+				cursor: pointer;
+				opacity: 1;
+				transform: scale(1,1);
+				transition-duration: 500ms;
+				background-color: black;
+				color: white;
+				padding: 11px;
+				font-size: 14px;
+				text-align: center;
+				border-radius: 15px;
+				user-select: none;
+				border: black solid 2px;
+			}
+			.projectbutton:hover{
+				opacity: .7;
+				transform: scale(1.1,1.1);
+				transition-timing-function: ease-out;
+				transition-duration: 500ms;
+				background-color: lightgrey;
+				color: black;
+				border: black solid 2px;
+			}
+			.project {
+				border: black solid 5px;
+				border-radius: 15px;
+				margin-top: 20px;
+				margin-bottom: 20px;
+			}
+			.projectheader {
+				padding-left: 10px;
+				padding-right: 10px;
+				border: black solid 5px;
+				border-bottom: none;
+				border-top: none;
+				font-size: 22px;
+				font-weight: bold;
+				color: lightgrey;
+				-webkit-text-stroke-width: 0.75px;
+				-webkit-text-stroke-color: black;
+			}
+		</style>
 	</head>
 	<body>
-		<div id="headertitle">
-			<span class="pagetitle">Welcome to My Website:</span>
-			<hr id="titlehr" />
-			<a class="pagetitle" id="subpagetitle" href="https://myjobistobehappy.github.io">@myjobistobehappy</a>
+		<div id="header">
+			<a id="homelink" target="_blank" href="https://myjobistobehappy.github.io">My Job Is<br>To Be Happy</a>
+			<a target="_blank" href="mailto:myjobistobehappy@gmail.com" class="svgformat" id="mailicon"><img src="images/mail.svg"></a>
+			<a target="_blank" href="https://instagram.com/myjobistobehappy" class="svgformat" id="instagramicon"><img src="images/instagram.svg"></a>
+			<a target="_blank" href="https://tiktok.com/@myjobistobehappy" class="svgformat" id="tiktokicon"><img src="images/tiktok.svg"></a>
 		</div>
-		<br>
-		<fieldset id="abovemiddlecontent">
-			<legend id="hnctitle">SCRIPTS FOR YOU!<hr id="hnchr"><small>Tiktok: <a target="_blank"href="https://www.tiktok.com/@hacksnotcracks">@hacksnotcracks</a></small></legend>
-			<div id="hnc" onclick="window.open('hacksnotcracks/')"><img src="images/tiktoklogo.png" id="tiktoklogo">Hacks Not Cracks</div>
-			<br>
-		</fieldset>
-		<br>
-		<div id="middlecontent">
-			<h2 style="margin: 10px;"><u><i><center>Projects: </center></i></u></h2>
-			<ul>
-				<li><a target="_blank" href="base64.html" style="color: red;">Base64 Encoder/Decoder</a></li>
-				<li><a target="_blank" href="binaryobjects.html" style="color: red;">Binary Objects (<span style="color: lightgreen";>Enhanced</span>)</a></li>
-				<ul>
-				<li><a target="_blank" href="blobcreator.html" style="color: orange;">Blob Creator (<span style="color: grey";>NOT Enhanced</span>)</a></li>
-				</ul>
-			</ul>
+		<div id="middle">
+			<h1 id="welcomewords">Welcome to My Website</h1>
+			<p><b>My name is Benjamin Solomon. I am graduating highschool the year of 2024.</b> I find front-end web development, scripting, and computers interesting. I go by <b>myjobistobehappy</b> on social media. For some reason right now, I just cannot stop using the font <b>Courier</b>. I just like it. Anyway, I left some of my <b>majestic</b> <i><u>projects</u></i> below. <b>Feel free to browse.</b></p>
+			<hr>
+			<fieldset class="project">
+				<legend class="projectheader">Base64 Encode/Decode</legend>
+				<p>Description: I made this so I don't have to use someone else's base64 encoder/decoder. What this does, is it decodes and encodes your input to and out of base64.<b> It uses JS functions <u>atob()</u> & <u>btoa()</u></b>Sometime later, I will revamp this and allow file import and non UTF-8 characters, but until then... this.</p>
+				<center><div class="projectbutton" onclick="window.open('base64.html', '_blank')">Enter Project</div></center>
+			</fieldset>
+			<fieldset class="project">
+				<legend class="projectheader">Binary Objects</legend>
+				<p>Description: This is essentially a file downloader. It uses <b>Binary Large Objects(BLOBS).</b> I made this so I could have by own file downloader.</p>
+				<center><div class="projectbutton" onclick="window.open('binaryobjects.html', '_blank')">Enter Project</div></center>
+			</fieldset>
 		</div>
-		<br />
-		<fieldset id="contactarea">
-			<legend id="contactheader">Contact Me:</legend>
-			<span>Email: <a target="_blank" href="mailto:myjobistobehappy@gmail.com">myjobistobehappy@gmail.com</a></span>
-			<br>
-			<span>Tikok: <a target="_blank" href="https://tiktok.com/@myjobistobehappy" target="_blank">@myjobistobehappy</a></span>
-			<br>
-			<span>Tikok: <a target="_blank" href="https://tiktok.com/@hacksnotcracks" target="_blank">@hacksnotcracks</a></span>
-			<br>
-			<span>Instagram: <a target="_blank" href="https://instagram.com/myjobistohappy">myjobistohappy</a></span>
-		</fieldset>
+			<hr>
+			<center><small id="bottomcredit">&#9679; Made By <a href="https://myjobistobehappy.github.io">@myjobistobehappy</a> &#9679;</small></center>
 	</body>
-	<!-- MADE BY BEN -->
 </html>
