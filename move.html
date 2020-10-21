@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Drag and Drop</title>
+		<style>
+			body {
+				user-select:none;
+			}
+			.dropdiv {
+				width: 200px;
+				height: 200px;
+				border: black 5px solid;
+				border-radius: 15px;
+				position: relative;
+				display: block;
+				margin: auto;
+			}
+			#movediv {
+				position: absolute;
+  				top: 50%; left: 50%;
+  				transform: translate(-50%,-50%);
+				width: 100px;
+				height: 100px;
+				border: red 5px solid;
+				display: block;
+				margin: auto;
+				border-radius: 15px;
+				text-align: center;
+			}
+		</style>
+		<script>
+			/*	window.onload = function() {
+				//Assign Variables
+				var dropdiv = document.getElementById('dropdiv');
+				var movediv = document.getElementById('movediv');
+				//Add Drag & Drop Listeners
+				dropdiv.ondrop="drop(event)";
+				dropdiv.ondragover="allowDrop(event)";
+				movediv.draggable="true";
+				movediv.ondragstart="drag(event)";
+			}*/
+			//Add Event Handlers
+			function allowDrop(event) {
+				event.preventDefault();
+			}
+
+			function drag(event) {
+				event.dataTransfer.setData("Text", event.target.id);
+			}
+
+			function drop(event) {
+				event.preventDefault();
+				var data = event.dataTransfer.getData("Text");
+				event.target.appendChild(document.getElementById(data));
+			}
+
+
+		</script>
+	</head>
+	<body>
+		<br>
+		<div class="dropdiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		<br><hr><br>
+		<div class="dropdiv" ondrop="drop(event)" ondragover="allowDrop(event)">
+			<div id="movediv" draggable="true" ondragstart="drag(event)">Move ME!!</div>
+		</div>
+	</body>
+</html>
