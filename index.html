@@ -67,6 +67,7 @@
 				text-decoration: underline;
 			}
 			#bottomcredit {
+				font-family: Courier;
 				padding: 5px;
 			}
 			#bottomcredit a {
@@ -114,8 +115,31 @@
 				color: lightgrey;
 				-webkit-text-stroke-width: 0.75px;
 				-webkit-text-stroke-color: black;
+				border-radius: 5px;
+			}
+			#whatsinstorelegend {
+				border-left: black solid 25px;
+				border-right: black solid 25px;
+				text-align: center;
+				color: white;
+				border-radius: 20px;
+				
 			}
 		</style>
+		<script>
+			window.onload = function() {
+				function handleclick(event) {
+					event.preventDefault();
+				}
+				var aruns = document.getElementsByClassName('dontrunonpage');
+				var i;
+				for(i=0; i < aruns.length; i++) {
+					aruns[i].draggable = "true";
+					aruns[i].onclick = handleclick;
+					//aruns[i].onclick = "function(e) { alert(e) }"
+				}
+			}
+		</script>
 	</head>
 	<body>
 		<div id="header">
@@ -138,19 +162,33 @@
 				<p>Description: This is essentially a file downloader. It uses <b>Binary Large Objects(BLOBS).</b> I made this so I could have by own file downloader.</p>
 				<center><div class="projectbutton" onclick="window.open('binaryobjects.html', '_blank')">Enter Project</div></center>
 			</fieldset>
-			<fieldset class="project" style="border-color: lightgrey;">
-				<legend class="projectheader" style="border-color: lightgrey; color: yellow; -webkit-text-stroke-color: red; text-align: right;">What is in store?</legend>
+			<fieldset class="project">
+				<legend class="projectheader">Case Changer</legend>
+				<p>Description: This changes a string's case. I made this so I don't have to use Google Docs. The cases used are lowercase, UPPERCASE, and Title Case.</p>
+				<center><div class="projectbutton" onclick="window.open('changecase.html', '_blank')">Enter Project</div></center>
+			</fieldset>
+			<fieldset class="project">
+				<legend class="projectheader">Scripts</legend>
+				<p>Description: These are javascript bookmarklets in order to use them, just drag them to your bookmarks bar. If you don't see your bookmarks bar press <b>CTRL/COMMAND + SHIFT + B</b> in Chrome. If you still don't understand, then click <a target="_blank" style="color: red;" href="https://www.youtube.com/watch?v=qx3NxdjajHk">here</a> to watch a video. Please note that I am not in any way affiliated with the creators of the video at PCMag.</p>
+				<hr>
+				<ul>
+					<li><a class="dontrunonpage" href="javascript:var iframe = document.getElementsByTagName('iframe'); for(var i=0; i < iframe.length; i++) { if(iframe[i].src.includes('youtube')) { var yourl = iframe[i].src; var id = yourl.split('/').pop(); if (id.includes('?')) { id = id.substring(0, id.indexOf('?')); }; window.open('https://www.youtube.com/watch?v=' + id); } };">Youtube Unembed</a><br>This will open a youtube page if a video is embed with their embedding formatting using iframes.</li>
+					<li><a class="dontrunonpage" href="javascript:var img = document.getElementsByTagName('img'); Array.prototype.forEach.call(img, function(thisimage){ if(thisimage.src.includes('lh3.googleusercontent.com')) { var theimagesrc; if (thisimage.src.includes('=')) { theimagesrc = thisimage.src.substring(0, thisimage.src.indexOf('=')); } else { theimagesrc = thisimage.src; } (async function() { const fetchpic = await fetch(theimagesrc); const blob = await fetchpic.blob(); const src = window.URL.createObjectURL(blob); var a = document.createElement('a'); a.href = src; a.download = 'profilepic.png'; a.click(); a.remove(); window.URL.revokeObjectURL(src); })(); }; });">Download Google Profile Pic</a><br>You can go to any Google website has your little profile picture in the top right corner and just click this. It will download the picture in PNG format.</li>
+				</ul>
+			</fieldset>
+			<fieldset class="project" style="border-radius: 0px;">
+				<legend class="projectheader" id="whatsinstorelegend">What is in Store?</legend>
 				<h3>Working On:</h3>
 				<ul>
-					<li>I have too much school work to do.<br><b>So Nothing Right Now :(</b></li>
+					<li>Youtube Downloader JS Bookmarklet</li>
 				</ul>
 				<hr>
 				<h3>Ideas:</h3>
 				<ul>
-					<li>Get Google Profile Pic and Download It Script</li>
+					<li>Add <b style="background-color: lightgrey; padding: 2px; border: black 1px solid; border-radius: 15px;"><span style="color: red;">C</span><span style="color: orange;">o</span><span style="color: yellow;">l</span><span style="color: green;">o</span><span style="color: blue;">r</span><span style="color: purple;">s</span></b> to this website</li>
+					<br>
 					<li>Youtube Video Downloader Script, Webpage with CORS-ANYWHERE</li>
 					<li>Text Unescape/Escape</li>
-					<li>UPPERCASE, lowercase, Title Case so I don't always have to use Google Docs for that</li>
 					<li>URL Opener (Multiple URLs)</li>
 					<li>URL Expander: Expand Shortened URLs like Bit.ly</li>
 					<li>I want to make a cool animation introduction to the website</li>
@@ -158,6 +196,8 @@
 					<li>Use PeerJS alternative</li>
 					<li>Put tracking and localstorage to use on my website.</li>
 					<li>Make a local storage manager.</li>
+					<li>Make a privacy policy.</li>
+					<li>Make a version of endless horse using onscroll.</li>
 					<li><u>Once I get enough projects, I will make a search bar.</u></li>
 				</ul>
 			</fieldset>
