@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Change Case</title>
+		<style>
+			body {
+				background-color: #FFA07A;
+			}
+			#cctitle {
+				user-select: none;
+				text-align: center;
+				font-family: Courier;
+				color: #B22222;
+				-webkit-text-stroke-width: 1px;
+				-webkit-text-stroke-color: white;
+				background-color: #FA8072;
+				outline: black solid 2px;
+				border: white solid 2px;
+				width: 95%;
+				display: block;
+				margin: auto;
+			}
+			#changecase {
+				color: black;
+				font-family: Times;
+				width: 95%;
+				height: 400px;
+				margin: auto;
+				display: block;
+				font-size: 14px;
+				border: black solid 2px;
+				border-radius: 10px;
+				resize: vertical;
+				padding: 5px;
+				outline: none;
+			}
+			#buttons {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				resize: none;
+			}
+			.button {
+				user-select: none;
+				font-family: Courier;
+				font-weight: bold;
+				font-size: 1em;
+				background-color: #B22222;
+				color: white;
+				outline: black solid 2px;
+				border: white solid 2px;
+				padding: 8px;
+				margin: 20px;
+				display: inline-block;
+				text-align: center;
+				transform: scale(1,1);
+				transition-duration: 250ms;
+				transition-timing-function: ease-out;
+				cursor: pointer;
+
+			}
+			.button:hover {
+				outline: white solid 2px;
+				border: black solid 2px;
+				text-decoration: underline;
+				transform: scale(1.1,1.1);
+				transition-timing-function: ease-out;
+				transition-duration: 250ms;
+			}
+		</style>
+		<script>
+			window.onload = () => {
+				var changecase = document.getElementById("changecase");
+				var uppercase = document.getElementById("uppercase");
+				var titlecase = document.getElementById("titlecase");
+				var lowercase = document.getElementById("lowercase");
+
+				String.prototype.toTitleCase = function() {
+					var words = this.split(' ');
+					var results = [];
+					for (var i = 0; i < words.length; i++) {
+						var letter = words[i].charAt(0).toUpperCase();
+						results.push(letter + words[i].slice(1).toLowerCase());
+					}
+					return results.join(' ');
+				};
+
+				uppercase.onclick = function() { changecase.value = changecase.value.toUpperCase() };
+				titlecase.onclick = function() { changecase.value = changecase.value.toTitleCase() };
+				lowercase.onclick = function() { changecase.value = changecase.value.toLowerCase() };
+			}
+		</script>
+	</head>
+	<body>
+		<h1 id="cctitle">Case Changer</h1>
+		<br>
+		<textarea id="changecase" placeholder="Enter Your Text Here"></textarea>
+		<br>
+		<div id="buttons">
+			<button id="uppercase" class="button">UPPERCASE</button>
+			<button id="titlecase" class="button">Title Case</button>
+			<button id="lowercase" class="button">lowercase</button>
+		</div>
+	</body>
+</html>
