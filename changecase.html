@@ -85,9 +85,18 @@
 					return results.join(' ');
 				};
 
+				String.prototype.toAlternatingCase = function() {
+					var chars = this.toLowerCase().split("");
+					for (var i = 0; i < chars.length; i += 2) {
+						chars[i] = chars[i].toUpperCase();
+					}
+					return chars.join("");
+				};
+
 				uppercase.onclick = function() { changecase.value = changecase.value.toUpperCase() };
 				titlecase.onclick = function() { changecase.value = changecase.value.toTitleCase() };
 				lowercase.onclick = function() { changecase.value = changecase.value.toLowerCase() };
+				alternatingcase.onclick = function() { changecase.value = changecase.value.toAlternatingCase() };
 			}
 		</script>
 	</head>
@@ -100,6 +109,7 @@
 			<button id="uppercase" class="button">UPPERCASE</button>
 			<button id="titlecase" class="button">Title Case</button>
 			<button id="lowercase" class="button">lowercase</button>
+			<button id="alternatingcase" class="button">AlTeRnAtInG CaSe</button>
 		</div>
 	</body>
 </html>
