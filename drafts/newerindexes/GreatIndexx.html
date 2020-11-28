@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			body, html {
+				height: 100%;
+				margin: 0;
+				font-family: Arial, Helvetica, sans-serif;
+				-ms-overflow-style: none;
+				scrollbar-width: none;
+				user-select: none;
+				background: grey;
+			}
+			body::-webkit-scrollbar {
+				display: none;
+			}
+
+			#background {
+				background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Monasterio_Khor_Virap%2C_Armenia%2C_2016-10-01%2C_DD_25.jpg/2560px-Monasterio_Khor_Virap%2C_Armenia%2C_2016-10-01%2C_DD_25.jpg");
+				/*background-image: linear-gradient(to right, lightblue, lightblue);*/
+				filter: blur(8px);
+				-webkit-filter: blur(8px);
+				width: 100%;
+				height: 100%;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				display: block;
+				position: fixed;
+				transition: all 2s;
+			}
+
+			#header {
+				background-color: rgba(255,255,255, 0.4);
+				color: white;
+				border: 3px solid black;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				z-index: 2;
+				width: 80%;
+				padding: 20px;
+				text-align: center;
+				transition: all 2s;
+			}
+			#header1 {
+				width: 100%;
+				position: sticky;
+				top: 0;
+				color: white;
+				background-color: lightgrey;
+				overflow: auto;
+				opacity: 0.95;
+				border-bottom: 5px solid black;
+				z-index: 999999;
+			}
+			#homelink {
+				float: left;
+				width: 100%;
+				/*padding: 10px;*/
+				font-size: 2.5em;
+				color: black;
+				font-family: Courier;
+				text-decoration: none;
+				margin: auto;
+				font-weight: lighter;
+				transition: all 2s;
+			}
+			.svgformat {
+				float: none;
+				padding: 33px;
+				text-decoration: none;
+				margin: 0px;
+				margin-left: 10px;
+				padding: 6px;
+				transition: all 2s;
+			}
+			#medialinks {
+				width: 100%;
+				margin-left: 5px;
+				margin-right: 5px;
+				transition: all 2s;
+
+			}
+			#tiktokicon img {
+				width: 1.9em;
+			}
+			#instagramicon img {
+				width: 2em;
+			}
+			#mailicon img {
+				width: 2.3em;
+			}
+		</style>
+		<script>
+			window.onload = function()  {
+				function evis(element) {
+					var position = element.getBoundingClientRect();
+
+					// checking whether fully visible
+					if(position.top >= 0 && position.bottom <= window.innerHeight) {
+						return true;
+					}
+					
+					// checking if off the page or partially off the page
+					if(!position.top >= 0 && position.bottom <= window.innerHeight) {
+						return false;
+					}
+				}
+				var header = document.getElementById('header');
+				var background = document.getElementById('background');
+				var homelink = document.getElementById('homelink');
+				var medialinks = document.getElementById('medialinks');
+				var svgformat = document.getElementsByClassName('svgformat');
+				window.addEventListener('scroll', function() {
+					if(evis(header) == false) {
+						header.style = `
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+							z-index: 999999;
+							padding: 20px;
+							text-align: center;
+							width: 100%;	
+							border-color: transparent transparent black transparent;
+							/*position: sticky;
+							top: 0;*/
+							background-color: lightgrey;
+							overflow: hidden;
+							height: 4em;
+							opacity: 0.95;
+							transition: all 2s;
+						`
+						homelink.style = `
+							float: left;
+							width: fit-content;
+							padding: 10px;
+							font-size: 1.5em;
+							color: black;
+							margin: 4px;
+							font-family: Courier;
+							text-decoration: none;
+							font-weight: lighter;
+							transition: all 2s;
+						`;
+						medialinks.style = `
+							float: right;
+							text-decoration: none;
+							width: fit-content;
+							margin-left: 5px;
+							margin-right: 5px;
+							padding: inherit;
+							width: fit-content;
+							transition: all 2s;
+						`;
+						[].forEach.call(svgformat, function(item) { item.style.float = 'right'; });
+						//background.style.backgroundImage = "url('https://www.ready.gov/sites/default/files/2019-09/volcano.jpg')";
+						//background.style.transition = "background-image 2s";
+						//document.getElementById('splitbr').style.display = 'block';
+					}
+					else {
+						header.style = `
+							background: rgba(255,255,255, 0.4);
+							/*background-color: rgba(0,0,0, 0.4);*/
+							color: white;
+							font-weight: bold;
+							border: 3px solid black;
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+							z-index: 2;
+							width: 80%;
+							padding: 20px;
+							text-align: center;
+							transition: all 2s;
+						`
+						homelink.style = `
+							float: left;
+							width: 100%;
+							/*padding: 10px;*/
+							font-size: 2.5em;
+							color: black;
+							font-family: Courier;
+							text-decoration: none;
+							margin: auto;
+							font-weight: lighter;
+							transition: all 2s;
+						`;
+						medialinks.style = `
+							float: none;
+							padding: 33px;
+							text-decoration: none;
+							margin-left: 5px;
+							margin-right: 5px;
+							margin-left: 10px;
+							padding: 6px;
+							width: 100%;
+							transition: all 2s;
+						`;
+						[].forEach.call(svgformat, function(item) { item.style.float = 'none'; });
+						//background.style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Monasterio_Khor_Virap%2C_Armenia%2C_2016-10-01%2C_DD_25.jpg/2560px-Monasterio_Khor_Virap%2C_Armenia%2C_2016-10-01%2C_DD_25.jpg')";
+						//background.style.transition = "background-image 2s";
+						//document.getElementById('splitbr').style.display = 'none';
+						//header.style.backgroundColor = 'rgba(0,0,0, 0.4)';
+						//header.style.borderColor = '#f1f1f1';
+						//header.style.width = '80%';
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+
+		<div id="background"></div>
+
+		<div id="header">
+			<a id="homelink" target="_blank" href="https://myjobistobehappy.github.io">@myjobistobehappy</a>
+			<div id="medialinks">
+				<a target="_blank" href="https://tiktok.com/@myjobistobehappy" class="svgformat" id="tiktokicon"><img src="images/tiktok.svg">
+				<a target="_blank" href="https://instagram.com/myjobistobehappy" class="svgformat" id="instagramicon"><img src="images/instagram.svg"></a>
+				<a target="_blank" href="mailto:myjobistobehappy@gmail.com" class="svgformat" id="mailicon"><img src="images/mail.svg"></a></a>
+			</div>
+		</div>
+		<!--<div id="header1">
+			<a id="homelink" target="_blank" href="https://myjobistobehappy.github.io">My Job Is<br>To Be Happy</a>
+			<a target="_blank" href="mailto:myjobistobehappy@gmail.com" class="svgformat" id="mailicon"><img src="images/mail.svg"></a>
+			<a target="_blank" href="https://instagram.com/myjobistobehappy" class="svgformat" id="instagramicon"><img src="images/instagram.svg"></a>
+			<a target="_blank" href="https://tiktok.com/@myjobistobehappy" class="svgformat" id="tiktokicon"><img src="images/tiktok.svg"></a>
+		</div>-->
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><p>hello</p>
+
+	</body>
+</html>
