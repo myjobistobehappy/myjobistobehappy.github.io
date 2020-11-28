@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Custom Search Bar</title>
+	</head>
+	<body>
+		<script>
+			//lockintocontrol+f
+			window.onload = function() {
+				var searcharea = document.getElementById('searcharea');
+				document.getElementById('nextup').onclick = function() { window.find(document.getElementById('searchbox').value, matchcase, true); };
+				document.getElementById('nextdown').onclick = function() { window.find(document.getElementById('searchbox').value, matchcase); };
+				document.getElementById('close').onclick = function() { searcharea.style.display = "none"; };
+				var matchcase = false;
+				var mcbutton = document.getElementById('matchcase');
+				mcbutton.onclick = function() {
+					if (matchcase == false) {
+						matchcase = true;
+						mcbutton.innerText = 'aa';
+					}
+					else {
+						matchcase = false;
+						mcbutton.innerText = 'Aa';
+					}
+				}
+				window.onkeydown = function(event) {
+					if(event.ctrlKey && event.key === 'f') {
+						event.preventDefault();
+						searcharea.style.display = "flex";
+						document.getElementById('searchbox').focus();
+					}
+
+					if(event.key === 'Enter') {
+						event.preventDefault();
+						window.find(event.target.value, matchcase, false, false, true);
+					}
+
+					if(event.shiftKey && event.key === 'Enter') {
+						event.preventDefault();
+						window.find(event.target.value, matchcase, true);
+					}
+				}
+			}
+		</script>
+		<style>
+			#searcharea {
+				width: 20em;
+				height: 3em;
+				border: 1px solid black;
+				border-radius: 5px;
+				position: fixed;
+				top: 1%;
+				right: 10%;
+				display: none;
+				align-items: center;
+				user-select: none;
+				background-color: white;
+			}
+
+			#searchbox {
+				margin: 10px;
+				height: 2.5em;
+				width: 13em;
+				border-style: none solid none none;
+				border-width: 1px;
+				border-color: lightgrey;
+			}
+			#searchbox:focus {
+				outline: none;
+			}
+			#close {
+				color: red;
+				padding-top: 0px;
+				padding-bottom: 0px;
+				font-weight: bold;
+			}
+			.icon {
+				padding: 2px;
+				float: left;
+				display: inline-block;
+				width: calc(7em/4);
+				text-align: center;
+				cursor: pointer;
+				margin-left: 5px;
+				margin-right: 5px;
+				border-radius: 30px;
+				border: 1px solid white;
+
+			}
+			.icon:hover {
+				border: 1px solid black;
+				background-color: lightgrey;
+			}
+			#matchcase {
+				font-weight: bold;
+			}
+		</style>
+		<br>
+		<br>
+		<br>
+		<div id="searcharea">
+			<input id="searchbox" autocomplete="off" placeholder="Find on Page">
+			<span id="nextup" class="icon">&#9650;</span>
+			<span id="nextdown" class="icon">&#9660;</span>
+			<span id="matchcase" class="icon">Aa</span>
+			<span id="close" class="icon">&#128937;</span>
+		</div>
+		<h1>Custom Search Bar</h1>
+		<h3>Just click Control + F to try it.</h3>
+		<iframe src="https://example.com"></iframe>
+		<p>Here goes goes goes here some text text some text some lorem ipsum lorem.</p>
+		<p>Here goes goes goes here some text text some text some lorem ipsum lorem.</p>
+		<p>Here goes goes goes here some text text some text some lorem ipsum lorem.</p>
+		<p>Here goes goes goes here some text text some text some lorem ipsum lorem.</p>
+		<p>Here goes goes goes here some text text some text some lorem ipsum lorem.</p>
+		<p>Here goes goes goes here some text text some text some lorem ipsum lorem.</p>
+
+		v
+		<p>Here goes goes goes here some text text some text some lorem ipsum lorem.</p><p>Here goes goes goes here some text text some text some lorem ipsum lorem.</p>
+		v
+		<p>Here goes goes goes here some text text some text some lorem ipsum lorem.</p>
+		<p>Here goes goes goes here some text text some text some lorem ipsum lorem.</p>
+		<p>Here goes goes goes here some text text some text some lorem ipsum lorem.</p>
+
+		<p>Here goes goes goes here some text text some text some lorem ipsum lorem.</p>
+		v
+		<p>Here goes goes goes here some text text some text some lorem ipsum lorem.</p>
+
+		<p>Here goes goes goes here some text text some text some lorem ipsum lorem.</p>
+		<p>Here goes goes goes here some text text some text some lorem ipsum lorem.</p>
+		<p>Here goes goes goes here some text text some text some lorem ipsum lorem.</p>
+		<p>Here goes goes goes here some text text some text some lorem ipsum lorem.</p>
+
+		<p>Here goes goes goes here some text text some text some lorem ipsum lorem.</p>
+	</body>
+</html>
