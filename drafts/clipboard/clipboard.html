@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clipboard Manager</title>
+	<style>
+		body {
+			background-image: linear-gradient(to top right, lightblue, lightgreen, lightblue);
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+		}
+		#centerdiv {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			background-color: black;
+			opacity: 0.6;
+			width: 85%;
+			color: white;
+			height: 85%;
+			text-align: center;
+			overflow: hidden;
+		}
+		#theheader {
+			text-align: center;
+			width: fit-content;
+			display: block;
+			padding: 5px 10px;
+			margin-left: auto;
+			margin-right: auto;
+			font-family: Courier;
+			font-weight: lighter;
+			border: black solid 2px;
+			border-radius: 25%;
+			letter-spacing: 1px;
+			user-select: none;
+			border-left: white solid 2px;
+			border-right: white solid 2px;
+			margin-bottom: 5px;
+			font-size: 2em;
+			transition: letter-spacing 2s, border-radius 2s, border-color 2s;
+		}
+		#theheader:hover {
+			letter-spacing: 7px;
+			border-color: white;
+			border-radius: 0px;
+
+		}
+		#copyclipheadingcontainer {
+			float: left;
+			border-right: white solid 1px;
+		}
+		#pasteclipheadingcontainer {
+			float: right;
+			border-left: white solid 1px;
+
+		}
+		.minorheadingcontainer {
+			width: calc(50% - 1px);
+			text-align: center;
+			height: calc(85% - 1em)
+		}
+		.minorheading {
+			text-align: center;
+			display: inline-block;
+			font-family: Courier;
+			font-weight: lighter;
+			border: solid 2px;
+			user-select: none;
+			border-color: white black white black;
+			width: fit-content;
+			padding: 5px 10px;
+			margin-left: 0px;
+			margin-right: 0px;
+			margin-bottom: 0px;
+			font-size: 1.5em;
+			transition: border-color 1s;
+			
+		}
+		.minorheading:hover {
+			border-color: black white black white;
+		}
+		.textarea {
+			font-family: Times;
+			outline: white solid 1px;
+			background-color: black;
+			color: white;
+			border: none;
+			border-radius: 0px;
+			height: 5em;
+			width: 75%;
+			font-size: 1em;
+			resize: vertical;
+			margin-right: auto;
+			margin-left: auto;
+		}
+		.buton {
+			text-align: center;
+			font-family: Courier;
+			background-color: #696969;
+			color: white;
+			width: fit-content;
+			padding: 10px;
+			font-size: 1em;
+			border-radius: 10px;
+			margin: 10px auto 10px auto;
+			border: white solid 2px;
+			user-select: none;
+			transition: border-radius 1s;
+			
+		}
+		.buton:hover {
+			border-radius: 0px;
+			border-color: green;
+			background-color: blue;
+			color: white;
+			animation: shake 0.5s;
+			animation-iteration-count: infinite;
+		}
+
+		@keyframes shake {
+			0% { transform: translate(1px, 1px) rotate(0deg); }
+			10% { transform: translate(-1px, -2px) rotate(-1deg); }
+			20% { transform: translate(-3px, 0px) rotate(1deg); }
+			30% { transform: translate(3px, 2px) rotate(0deg); }
+			40% { transform: translate(1px, -1px) rotate(1deg); }
+			50% { transform: translate(-1px, 2px) rotate(-1deg); }
+			60% { transform: translate(-3px, 1px) rotate(0deg); }
+			70% { transform: translate(3px, 1px) rotate(-1deg); }
+			80% { transform: translate(-1px, -1px) rotate(1deg); }
+			90% { transform: translate(1px, 2px) rotate(0deg); }
+			100% { transform: translate(1px, -2px) rotate(-1deg); }
+		}
+	</style>
+	<script>
+		window.onload = function() {
+			async function copyText() {
+				try {
+					await navigator.clipboard.writeText(document.getElementById('copytextarea').value);
+				}
+				catch(error) {
+					alert(error)
+				}
+			};
+			async function pasteText() {
+				try {
+					var clipboard = await navigator.clipboard.readText();
+					document.getElementById('pastetextarea').value = clipboard;
+					if (clipboard == '') {
+						alert('Your clipboard is either empty or it contains something that is not readable as text. If you have an image on your clipboard don\'t worry, it will be supported soon. If your clipboard is just empty, ignore this or put something on your clipboard that is readable as text.')
+					}
+					//(document.getElementById('copytextarea').value)
+				}
+				catch(error) {
+					alert(error);
+				}
+			};
+			document.getElementById('copytoclipboard').onclick = copyText;
+			document.getElementById('pastefromclipboard').onclick = pasteText;
+		}
+	</script>
+</head>
+<body>
+	<div id='centerdiv'>
+		<h1 id='theheader'>Clipboard Manager</h1>
+		<div id='copyclipheadingcontainer' class='minorheadingcontainer'>
+			<h2 class='minorheading'>Copy</h2>
+			<br><br>
+			<small>Use this tool to copy text to your clipboard.</small>
+			<textarea class='textarea' id='copytextarea'></textarea>
+			<div class='buton' id='copytoclipboard'>Copy To Clipboard</div>
+		</div>
+		<div id='pasteclipheadingcontainer' class='minorheadingcontainer'>
+			<h2 class='minorheading'>Paste</h2>
+			<br><br>
+			<small>Use this tool to paste text from your clipboard.</small>
+			<div class='buton' id='pastefromclipboard'>Paste From Clipboard</div>
+		<textarea class='textarea' id='pastetextarea'></textarea>
+		</div>
+	</div>
+</body>
+</html>
